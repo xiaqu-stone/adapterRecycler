@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+     
+    <book id="1">
+         
+        <bookname>《Java编程思想》</bookname>
+         
+        <price>85.5</price>
+         
+    </book>
+     
+    <book id="2">
+         
+        <bookname>《Android 学习手册》</bookname>
+         
+        <price>39.0</price>
+         
+    </book>
+</books>
