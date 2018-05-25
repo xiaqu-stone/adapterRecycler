@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion conf.compileSdkVersion
+    defaultConfig {
+        minSdkVersion conf.minSdkVersion
+        targetSdkVersion conf.targetSdkVersion
+        versionCode conf.versionCode
+        versionName conf.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.android.support:recyclerview-v7:$support"
+    implementation "com.android.support:support-v4:${support}"
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'adapter-recycler'
+
+    publishedGroupId = 'com.sqq.xiaqu'
+    libraryName = 'adapter-recycler'
+    artifact = 'adapter-recycler'
+
+    libraryVersion = '1.0.0'
+
+    libraryDescription = 'RecyclerView常用Adapter的封装（根据鸿洋的 baseAdapter 开源代码，改编自用）'
+
+    siteUrl = 'https://github.com/xiaqu-stone/adapterRecycler'
+    gitUrl = 'https://github.com/xiaqu-stone/adapterRecycler'
+
+    developerId = 'stone'
+    developerName = 'xiaqu-stone'
+    developerEmail = 'stone.xiaqu@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/install-v1.gradle"
+apply from: "bintray.gradle"
+//apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/bintray-v1.gradle"
