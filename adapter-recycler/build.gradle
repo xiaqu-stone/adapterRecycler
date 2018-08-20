@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android'
+
 android {
     compileSdkVersion conf.compileSdkVersion
     defaultConfig {
@@ -22,6 +24,7 @@ dependencies {
 
     implementation "com.android.support:recyclerview-v7:$support"
     implementation "com.android.support:support-v4:${support}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
 
 ext {
@@ -32,7 +35,7 @@ ext {
     libraryName = 'adapter-recycler'
     artifact = 'adapter-recycler'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     libraryDescription = 'RecyclerView常用Adapter的封装（根据鸿洋的 baseAdapter 开源代码，改编自用）'
 
@@ -49,5 +52,4 @@ ext {
 }
 
 apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/install-v1.gradle"
-apply from: "bintray.gradle"
-//apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/bintray-v1.gradle"
+apply from: "https://raw.githubusercontent.com/xiaqu-stone/ComPro/master/bintray-v2.gradle"

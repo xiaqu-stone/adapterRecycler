@@ -6,15 +6,20 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
     private SparseArray<View> mViews;
@@ -66,6 +71,10 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         return (Button) getView(viewId);
     }
 
+    public CheckBox getCheckBox(int viewId) {
+        return (CheckBox) getView(viewId);
+    }
+
     public ImageView getImageView(int viewId) {
         return (ImageView) getView(viewId);
     }
@@ -100,10 +109,20 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     public ViewHolder setTextAndColor(@NonNull TextView textView, CharSequence text, String textColor) {
         if (text == null) text = "";
         textView.setText(text);
-        if (!TextUtils.isEmpty(textColor)) {
+        if (isColorOK(textColor)) {
             textView.setTextColor(Color.parseColor(textColor));
+        } else {
+            Log.w("ViewHolder", "The textColor is invalid when called method setTextAndColor()");
         }
         return this;
+    }
+
+    private boolean isColorOK(String colorString) {
+        //^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$
+        if (TextUtils.isEmpty(colorString)) return false;
+        Pattern p = Pattern.compile("#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})");//复杂匹配
+        Matcher m = p.matcher(colorString);
+        return m.matches();
     }
 
     /**

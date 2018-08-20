@@ -1,6 +1,8 @@
 package com.stone.recyclerwrapper;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.stone.recyclerwrapper.base.ItemViewDelegate;
 import com.stone.recyclerwrapper.base.ViewHolder;
@@ -29,7 +31,11 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T> {
 
             @Override
             public void bindData(ViewHolder holder, T t, int position) {
-                CommonAdapter.this.bindData(holder, t, position);
+                if (holder == null || t == null) {
+                    Log.e("CommonAdapter", "the holder or itemData is null when called method bindData in CommonAdapter");
+                } else {
+                    CommonAdapter.this.bindData(holder, t, position);
+                }
             }
         });
 
@@ -42,7 +48,6 @@ public abstract class CommonAdapter<T> extends MultiItemTypeAdapter<T> {
      * @param itemData 数据Model的对象
      * @param position pos 下标索引
      */
-    protected abstract void bindData(ViewHolder holder, T itemData, int position);
-
+    protected abstract void bindData(@NonNull ViewHolder holder, @NonNull T itemData, int position);
 
 }

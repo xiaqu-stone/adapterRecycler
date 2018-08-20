@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".pager_grid.MainActivity" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".KotlinActivity"></activity>
     </application>
 
 </manifest>
