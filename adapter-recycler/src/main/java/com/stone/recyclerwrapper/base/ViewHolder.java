@@ -34,13 +34,17 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     @SuppressWarnings("unchecked")
-    private <T extends View> T findViewById(int viewId) {
+    public  <T extends View> T findViewById(int viewId) {
         View view = mViews.get(viewId);
         if (view == null) {
             view = itemView.findViewById(viewId);
             mViews.put(viewId, view);
         }
         return (T) view;
+    }
+
+    public Context getContext() {
+        return mContext;
     }
 
     public View getConvertView() {

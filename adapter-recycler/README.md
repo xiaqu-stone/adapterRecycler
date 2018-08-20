@@ -5,7 +5,7 @@
 ### Gradle Dependencies
 
 ```
-implementation "com.sqq.xiaqu:adapter-recycler:1.0.1"
+implementation "com.sqq.xiaqu:adapter-recycler:1.0.2"
 ```
 
 ### 使用介绍

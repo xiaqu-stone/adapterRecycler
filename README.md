@@ -9,7 +9,7 @@ RecyclerView常用Adapter的封装（根据鸿洋的 baseAdapter 开源代码，
 ### gradle 配置
 ```
 dependencies {
-    implementation "com.sqq.xiaqu:adapter-recycler:1.0.1"
+    implementation "com.sqq.xiaqu:adapter-recycler:1.0.2"
 }
 ```
 
@@ -18,7 +18,7 @@ dependencies {
 <dependency>
   <groupId>com.sqq.xiaqu</groupId>
   <artifactId>adapter-recycler</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```

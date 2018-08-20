@@ -35,7 +35,7 @@ ext {
     libraryName = 'adapter-recycler'
     artifact = 'adapter-recycler'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     libraryDescription = 'RecyclerView常用Adapter的封装（根据鸿洋的 baseAdapter 开源代码，改编自用）'
 
